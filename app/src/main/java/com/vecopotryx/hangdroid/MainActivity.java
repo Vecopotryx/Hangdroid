@@ -11,9 +11,10 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-
+    TextView textView1 = (TextView)findViewById(R.id.textView);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +30,18 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+
+    }
+
+    public void method(View v){
+        System.out.println("Test");
+        Model.set_answer("abcda");
+        GameControl.populateArray();
+        Model._charGuess.add('a');
+        // Model._charGuess.add(stringIn.toCharArray()[0]);
+        GameControl.updateDisplayWord();
+        textView1.setText(Model._displayWord);
     }
 
     @Override

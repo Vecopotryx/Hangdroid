@@ -11,6 +11,7 @@ public class MenuControl {
      * then checks for input using getIntegerInput from the Input class and acts upon what the user picks.
      */
     public static void menu(){
+        /*
         Interface.printMenu();
         switch(Input.getIntegerInput()){
             case 1:
@@ -32,6 +33,7 @@ public class MenuControl {
                 Interface.clearScreen();
                 start();
         }
+         */
     }
 
 }

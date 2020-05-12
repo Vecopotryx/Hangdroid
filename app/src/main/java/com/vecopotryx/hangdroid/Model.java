@@ -1,3 +1,5 @@
+package com.vecopotryx.hangdroid;
+
 import java.util.ArrayList;
 
 public class Model {

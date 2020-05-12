@@ -1,3 +1,5 @@
+package com.vecopotryx.hangdroid;
+
 public class GameControl {
     /**
      * This method is what keeps the game running. It sets up some basic values, like the answer by calling the randomFromFile method in HandleFile.
@@ -24,7 +26,7 @@ public class GameControl {
      * Handles the logic for what the user sees and interacts with after they've won a game.
      */
     public static void victoryScreen(){
-        Interface.printVictoryScreen();
+        /*Interface.printVictoryScreen();
         switch(Input.getIntegerInput()){
             case 1:
                 clearVariables();
@@ -36,13 +38,14 @@ public class GameControl {
             case 3:
                 System.out.println("Goodbye");
                 System.exit(0);
-        }
+        }*/
     }
 
     /**
      * Handles the logic for what the user sees and interacts with after they've lost a game.
      */
     public static void lossScreen() {
+        /*
         Interface.printGameOverScreen();
         switch (Input.getIntegerInput()) {
             case 1:
@@ -57,12 +60,14 @@ public class GameControl {
                 MenuControl.start();
                 break;
         }
+         */
     }
 
     /**
      * Handles the logic for adding a line to the leaderboard. Utilizes the writeToFile() method from HandleFile.
      */
     public static void addToLeaderboard(){
+        /*
         System.out.print("Enter name: ");
         String name = Input.getStringInput();
         try{
@@ -83,6 +88,7 @@ public class GameControl {
                 System.exit(0);
                 break;
         }
+         */
     }
 
     /**
@@ -104,6 +110,7 @@ public class GameControl {
      * It gets user input and compares it against a few conditions in order to act correctly.
      */
     public static void gameScreen(){
+        /*
         Interface.printGameScreen();
         String stringIn = Input.getStringInput();
         if(stringIn.length() > 1){
@@ -123,6 +130,7 @@ public class GameControl {
                 }
             }
         }
+         */
     }
 
 
@@ -151,6 +159,7 @@ public class GameControl {
      * Displays a menu from the Interface class and then uses a switch to compare user input with various cases, and then acts accordingly.
      */
     public static void setCustomSettings(){
+        /*
         Interface.clearScreen();
         Interface.printCustomSettings();
         switch(Input.getIntegerInput()){
@@ -191,6 +200,7 @@ public class GameControl {
                 Interface.clearScreen();
                 setCustomSettings();
         }
+         */
     }
 
     /**

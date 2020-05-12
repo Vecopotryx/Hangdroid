@@ -1,3 +1,5 @@
+package com.vecopotryx.hangdroid;
+
 import java.io.*;
 import java.util.Random;
 import java.util.Scanner;
