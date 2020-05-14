@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openCustomActivity();
+                openPickModeActivity();
             }
         });
     }
@@ -38,8 +38,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void openCustomActivity(){
-        Intent intent = new Intent(this, CustomActivity.class);
+    public void openPickModeActivity(){
+        Intent intent = new Intent(this, PickModeActivity.class);
         startActivity(intent);
     }
 }
