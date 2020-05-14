@@ -27,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
         // Button mButton;
 
         EditText inputBox   = (EditText)findViewById(R.id.editText);
-        Model.set_answer("test");
+
+
 
         gameScreen(inputBox.getText().toString().toLowerCase());
 
@@ -38,6 +39,15 @@ public class MainActivity extends AppCompatActivity {
 
         TextView displayWordView = (TextView)findViewById(R.id.displayWordView);
         displayWordView.setText(Model._displayWord);
+
+        TextView wrongGuessesView = (TextView)findViewById(R.id.wrongGuessesView);
+        wrongGuessesView.setText(Model._wrongGuessesAmount.toString());
+
+        if(Model._displayWord.equals(Model.get_answer())){
+            Toast.makeText(MainActivity.this, "You won", Toast.LENGTH_LONG).show();
+        } else if(Model._wrongGuessesAmount > 6){
+            Toast.makeText(MainActivity.this, "You lost", Toast.LENGTH_LONG).show();
+        }
 
         // Toast.makeText(MainActivity.this,Model._answerArray.toString(), Toast.LENGTH_LONG).show();
 
@@ -55,23 +65,10 @@ public class MainActivity extends AppCompatActivity {
         } else if(!(Model._answerArray.contains((stringIn.toCharArray()[0])))) {
             Toast.makeText(MainActivity.this, "Incorrect guess", Toast.LENGTH_LONG).show();
             Model._charGuess.add(stringIn.toCharArray()[0]);
+            Model._wrongGuessesAmount += 1;
         } else {
             Model._charGuess.add(stringIn.toCharArray()[0]);
         }
-            /*
-            if(!stringIn.equals("")){
-                if(Model._charGuess.contains((stringIn.toCharArray()[0]))){
-                    Toast.makeText(MainActivity.this,"You've already guessed that", Toast.LENGTH_LONG).show();
-                } else if(!(Model._answerArray.contains((stringIn.toCharArray()[0])))) {
-                    Model._charGuess.add(stringIn.toCharArray()[0]);
-                    Model._wrongGuessesAmount += 1;
-                } else {
-                    Model._charGuess.add(stringIn.toCharArray()[0]);
-                }
-            } else {
-                Toast.makeText(MainActivity.this,"Please enter a valid char", Toast.LENGTH_LONG).show();
-            }
-             */
     }
 
     /**

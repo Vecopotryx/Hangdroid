@@ -3,7 +3,7 @@ package com.vecopotryx.hangdroid;
 import java.util.ArrayList;
 
 public class Model {
-    public static Integer _wrongGuessesAmount;
+    public static Integer _wrongGuessesAmount = 0;
     /**
      * Holds the answer
      */
