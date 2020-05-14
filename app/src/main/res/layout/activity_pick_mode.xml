@@ -18,10 +18,11 @@
         app:layout_constraintVertical_bias="0.116" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/easyModeButton"
         android:layout_width="162dp"
         android:layout_height="71dp"
         android:text="Easy"
+        android:onClick="setEasyMode"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -30,10 +31,11 @@
         app:layout_constraintVertical_bias="0.395" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/mediumModeButton"
         android:layout_width="162dp"
         android:layout_height="71dp"
         android:text="Medium"
+        android:onClick="setMediumMode"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -41,10 +43,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/difficultModeButton"
         android:layout_width="162dp"
         android:layout_height="71dp"
         android:text="Difficult"
+        android:onClick="setDifficultMode"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"

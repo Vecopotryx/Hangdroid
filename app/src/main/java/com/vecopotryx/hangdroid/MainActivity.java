@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openGameActivity(){
+        Model._customMinLength = 1;
+        Model._customMaxLength = 12;
         Intent intent = new Intent(this, GameActivity.class);
         startActivity(intent);
     }

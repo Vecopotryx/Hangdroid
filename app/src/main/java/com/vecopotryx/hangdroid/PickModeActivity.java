@@ -29,4 +29,27 @@ public class PickModeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void setEasyMode(View v){
+        Model._customMinLength = 1;
+        Model._customMaxLength = 3;
+        startGame();
+    }
+
+    public void setMediumMode(View v){
+        Model._customMinLength = 3;
+        Model._customMaxLength = 5;
+        startGame();
+    }
+
+    public void setDifficultMode(View v){
+        Model._customMinLength = 5;
+        Model._customMaxLength = 8;
+        startGame();
+    }
+
+    public void startGame(){
+        Intent intent = new Intent(this, GameActivity.class);
+        startActivity(intent);
+    }
+
 }
