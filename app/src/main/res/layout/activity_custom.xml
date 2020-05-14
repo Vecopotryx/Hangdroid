@@ -8,10 +8,62 @@
 
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/minLengthText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="136dp"
-        tools:layout_editor_absoluteY="49dp" />
+        android:text="Minimum answer length: 1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.247" />
+
+    <TextView
+        android:id="@+id/maxLengthText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="Maximum answer length: 12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/minLengthBar" />
+
+    <SeekBar
+        android:id="@+id/minLengthBar"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="370dp"
+        android:layout_height="70dp"
+        android:max="5"
+        android:progress="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/minLengthText" />
+
+    <SeekBar
+        android:id="@+id/maxLengthBar"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="370dp"
+        android:layout_height="70dp"
+        android:max="11"
+        android:progress="11"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.609"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/maxLengthText"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/startGameButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start game"
+        android:onClick="startGamePress"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/maxLengthBar" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

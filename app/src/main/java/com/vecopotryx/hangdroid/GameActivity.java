@@ -26,6 +26,8 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
+        getSupportActionBar().setTitle("Hangdroid");
+
         Model.set_answer("error");
         randomFromFile();
         populateArray();
@@ -85,7 +87,6 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
-    String input;
     public void buttonPress(View v){
 
         EditText inputBox   = (EditText)findViewById(R.id.editText);
