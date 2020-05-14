@@ -27,4 +27,17 @@ public class GameControl {
         }
     }
 
+    /**
+     * Clears the variables, useful if the user wants to play again after having won or lost, in order to avoid stuff carrying over from the previous game.
+     */
+    public static void clearVariables(){
+        Model.set_answer("");
+        Model._wrongGuessesAmount = 0;
+        Model._answerArray.clear();
+        Model._charGuess.clear();
+        Model._displayWord = "";
+        Model._customMinLength = 1;
+        Model._customMaxLength = 12;
+    }
+
 }

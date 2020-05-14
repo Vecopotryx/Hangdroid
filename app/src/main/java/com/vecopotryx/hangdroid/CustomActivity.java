@@ -58,6 +58,8 @@ public class CustomActivity extends AppCompatActivity {
     }
 
     public void startGamePress(View v){
+        GameControl.clearVariables();
+
         SeekBar minLengthBar = (SeekBar)findViewById(R.id.minLengthBar);
         Model._customMinLength = minLengthBar.getProgress() + 1;
 

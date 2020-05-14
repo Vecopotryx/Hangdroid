@@ -37,7 +37,7 @@ public class GameActivity extends AppCompatActivity {
         displayWordView.setText(Model._displayWord);
 
         EditText inputBox   = (EditText)findViewById(R.id.editText);
-        Toast.makeText(GameActivity.this, Model.get_answer(), Toast.LENGTH_LONG).show();
+        Toast.makeText(GameActivity.this, "Just for debug: " + Model.get_answer(), Toast.LENGTH_SHORT).show();
         final Button button = (Button)findViewById((R.id.button));
         inputBox.setOnEditorActionListener(new EditText.OnEditorActionListener() {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -107,7 +107,7 @@ public class GameActivity extends AppCompatActivity {
         TextView wrongGuessesView = (TextView)findViewById(R.id.wrongGuessesView);
         wrongGuessesView.setText("Incorrect guesses: " + Model._wrongGuessesAmount.toString());
 
-        if(Model._displayWord.equals(Model.get_answer())){
+        if(Model._displayWord.equals(Model.get_answer().toLowerCase())){
             Toast.makeText(GameActivity.this, "You won", Toast.LENGTH_LONG).show();
         } else if(Model._wrongGuessesAmount > 6){
             Toast.makeText(GameActivity.this, "You lost", Toast.LENGTH_LONG).show();
@@ -125,11 +125,11 @@ public class GameActivity extends AppCompatActivity {
      */
     public void gameScreen(String stringIn){
         if(stringIn.length() > 1 || stringIn.equals("")) {
-            Toast.makeText(GameActivity.this, "Please enter a valid char", Toast.LENGTH_LONG).show();
+            Toast.makeText(GameActivity.this, "Please enter a valid char", Toast.LENGTH_SHORT).show();
         } else if(Model._charGuess.contains(stringIn.toCharArray()[0])){
-            Toast.makeText(GameActivity.this, "You've already guessed that", Toast.LENGTH_LONG).show();
+            Toast.makeText(GameActivity.this, "You've already guessed that", Toast.LENGTH_SHORT).show();
         } else if(!(Model._answerArray.contains((stringIn.toCharArray()[0])))) {
-            Toast.makeText(GameActivity.this, "Incorrect guess", Toast.LENGTH_LONG).show();
+            Toast.makeText(GameActivity.this, "Incorrect guess", Toast.LENGTH_SHORT).show();
             Model._charGuess.add(stringIn.toCharArray()[0]);
             Model._wrongGuessesAmount += 1;
         } else {
@@ -142,7 +142,7 @@ public class GameActivity extends AppCompatActivity {
      */
     public void populateArray(){
         Model._answerArray.clear();
-        for(char c : Model.get_answer().toCharArray()) {
+        for(char c : Model.get_answer().toLowerCase().toCharArray()) {
             Model._answerArray.add(c);
         }
     }
