@@ -5,4 +5,5 @@
     <color name="colorAccent">#03DAC5</color>
 
     <color name="mainButtons">#2D313D</color>
+    <color name="mainText">#FFFFFF</color>
 </resources>

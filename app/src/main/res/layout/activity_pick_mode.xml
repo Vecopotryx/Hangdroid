@@ -19,8 +19,10 @@
 
     <Button
         android:id="@+id/easyModeButton"
-        android:layout_width="162dp"
-        android:layout_height="71dp"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:background="@drawable/custom_button"
+        android:textColor="@color/mainText"
         android:text="Easy"
         android:onClick="setEasyMode"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -32,8 +34,10 @@
 
     <Button
         android:id="@+id/mediumModeButton"
-        android:layout_width="162dp"
-        android:layout_height="71dp"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:background="@drawable/custom_button"
+        android:textColor="@color/mainText"
         android:text="Medium"
         android:onClick="setMediumMode"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -44,8 +48,10 @@
 
     <Button
         android:id="@+id/difficultModeButton"
-        android:layout_width="162dp"
-        android:layout_height="71dp"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:background="@drawable/custom_button"
+        android:textColor="@color/mainText"
         android:text="Difficult"
         android:onClick="setDifficultMode"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -57,8 +63,10 @@
 
     <Button
         android:id="@+id/customButton"
-        android:layout_width="162dp"
-        android:layout_height="71dp"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:background="@drawable/custom_button"
+        android:textColor="@color/mainText"
         android:text="Custom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -57,8 +57,10 @@
 
     <Button
         android:id="@+id/startGameButton"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/custom_button"
+        android:textColor="@color/mainText"
         android:text="Start game"
         android:onClick="startGamePress"
         app:layout_constraintBottom_toBottomOf="parent"
