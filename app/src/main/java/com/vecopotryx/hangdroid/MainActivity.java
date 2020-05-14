@@ -18,11 +18,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        GameControl.start();
+        Model.set_answer("test");
+        populateArray();
     }
 
     String input;
-    public void method(View v){
+    public void buttonPress(View v){
         // Button mButton;
         EditText mEdit;
         TextView mText;
@@ -30,10 +31,13 @@ public class MainActivity extends AppCompatActivity {
         mEdit   = (EditText)findViewById(R.id.editText);
         Model.set_answer("test");
 
-        TextView tv = (TextView)findViewById(R.id.textView);
-        tv.setText(Model.get_answer());
+        gameScreen(mEdit.getText().toString().toLowerCase());
 
-        gameScreen(mEdit.getText().toString());
+        TextView tv = (TextView)findViewById(R.id.textView);
+        tv.setText(Model._charGuess.toString());
+
+        Toast.makeText(MainActivity.this,Model._answerArray.toString(), Toast.LENGTH_LONG).show();
+
     }
 
     /**
@@ -43,23 +47,35 @@ public class MainActivity extends AppCompatActivity {
     public void gameScreen(String stringIn){
         if(stringIn.length() > 1){
             Toast.makeText(MainActivity.this,"Please enter a valid char", Toast.LENGTH_LONG).show();
+        } else if(Model._charGuess.contains(stringIn.toCharArray()[0])){
+            Toast.makeText(MainActivity.this, "You've already guessed that", Toast.LENGTH_LONG).show();
+        } else if(!(Model._answerArray.contains((stringIn.toCharArray()[0])))) {
+            Toast.makeText(MainActivity.this, "Incorrect guess", Toast.LENGTH_LONG).show();
+            Model._charGuess.add(stringIn.toCharArray()[0]);
 
-        } else {
             /*
             if(!stringIn.equals("")){
                 if(Model._charGuess.contains((stringIn.toCharArray()[0]))){
-                    Model._infoForUser = "You've already guessed that";
-                    gameScreen();
+                    Toast.makeText(MainActivity.this,"You've already guessed that", Toast.LENGTH_LONG).show();
                 } else if(!(Model._answerArray.contains((stringIn.toCharArray()[0])))) {
                     Model._charGuess.add(stringIn.toCharArray()[0]);
                     Model._wrongGuessesAmount += 1;
-                    Model._infoForUser = "";
                 } else {
                     Model._charGuess.add(stringIn.toCharArray()[0]);
-                    Model._infoForUser = "";
                 }
+            } else {
+                Toast.makeText(MainActivity.this,"Please enter a valid char", Toast.LENGTH_LONG).show();
             }
              */
+        }
+    }
+
+    /**
+     * Populates the _answerArray with the contents of the _answer string. Useful in order to simplify comparing guesses with the answer.
+     */
+    public void populateArray(){
+        for(char c : Model.get_answer().toCharArray()) {
+            Model._answerArray.add(c);
         }
     }
 }
