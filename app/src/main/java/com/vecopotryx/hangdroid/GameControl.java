@@ -14,7 +14,7 @@ public class GameControl {
         for(int i = 0; i < Model._answerArray.size(); i++){
             boolean isYes = false;
             for(int c = 0; c < Model._charGuess.size(); c++)
-                if(Model.get_answer().toCharArray()[i] == Model._charGuess.get(c)){
+                if(Model._answerArray.get(i) == Model._charGuess.get(c)){
                     Model._displayWord += Model._charGuess.get(c) + "";
                     isYes = true;
                 }

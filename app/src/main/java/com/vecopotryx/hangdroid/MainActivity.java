@@ -25,18 +25,21 @@ public class MainActivity extends AppCompatActivity {
     String input;
     public void buttonPress(View v){
         // Button mButton;
-        EditText mEdit;
-        TextView mText;
 
-        mEdit   = (EditText)findViewById(R.id.editText);
+        EditText inputBox   = (EditText)findViewById(R.id.editText);
         Model.set_answer("test");
 
-        gameScreen(mEdit.getText().toString().toLowerCase());
+        gameScreen(inputBox.getText().toString().toLowerCase());
 
-        TextView tv = (TextView)findViewById(R.id.textView);
-        tv.setText(Model._charGuess.toString());
+        TextView charGuessView = (TextView)findViewById(R.id.charGuessView);
+        charGuessView.setText(Model._charGuess.toString());
 
-        Toast.makeText(MainActivity.this,Model._answerArray.toString(), Toast.LENGTH_LONG).show();
+        GameControl.updateDisplayWord();
+
+        TextView displayWordView = (TextView)findViewById(R.id.displayWordView);
+        displayWordView.setText(Model._displayWord);
+
+        // Toast.makeText(MainActivity.this,Model._answerArray.toString(), Toast.LENGTH_LONG).show();
 
     }
 
@@ -45,14 +48,16 @@ public class MainActivity extends AppCompatActivity {
      * It gets user input and compares it against a few conditions in order to act correctly.
      */
     public void gameScreen(String stringIn){
-        if(stringIn.length() > 1){
-            Toast.makeText(MainActivity.this,"Please enter a valid char", Toast.LENGTH_LONG).show();
+        if(stringIn.length() > 1 || stringIn.equals("")) {
+            Toast.makeText(MainActivity.this, "Please enter a valid char", Toast.LENGTH_LONG).show();
         } else if(Model._charGuess.contains(stringIn.toCharArray()[0])){
             Toast.makeText(MainActivity.this, "You've already guessed that", Toast.LENGTH_LONG).show();
         } else if(!(Model._answerArray.contains((stringIn.toCharArray()[0])))) {
             Toast.makeText(MainActivity.this, "Incorrect guess", Toast.LENGTH_LONG).show();
             Model._charGuess.add(stringIn.toCharArray()[0]);
-
+        } else {
+            Model._charGuess.add(stringIn.toCharArray()[0]);
+        }
             /*
             if(!stringIn.equals("")){
                 if(Model._charGuess.contains((stringIn.toCharArray()[0]))){
@@ -67,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this,"Please enter a valid char", Toast.LENGTH_LONG).show();
             }
              */
-        }
     }
 
     /**
