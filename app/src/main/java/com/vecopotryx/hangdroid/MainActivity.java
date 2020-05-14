@@ -34,7 +34,13 @@ public class MainActivity extends AppCompatActivity {
         Model.set_answer("error");
         randomFromFile();
         populateArray();
+
+        GameControl.updateDisplayWord();
+        TextView displayWordView = (TextView)findViewById(R.id.displayWordView);
+        displayWordView.setText(Model._displayWord);
+
         EditText inputBox   = (EditText)findViewById(R.id.editText);
+        Toast.makeText(MainActivity.this, Model.get_answer(), Toast.LENGTH_LONG).show();
         final Button button = (Button)findViewById((R.id.button));
         inputBox.setOnEditorActionListener(new EditText.OnEditorActionListener() {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -56,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         InputStream is = null;
 
 
-        String data = "java";
+        String data = "android";
         Random random = new Random();
         try {
             is = assetManager.open("wordlist.txt");
@@ -91,9 +97,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         gameScreen(inputBox.getText().toString().toLowerCase());
-
-        TextView charGuessView = (TextView)findViewById(R.id.charGuessView);
-        charGuessView.setText(Model._charGuess.toString());
+        if(Model._charGuess.size() > 0){
+            TextView charGuessView = (TextView)findViewById(R.id.charGuessView);
+            charGuessView.setText(Model._charGuess.toString());
+        }
 
         GameControl.updateDisplayWord();
 
@@ -101,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
         displayWordView.setText(Model._displayWord);
 
         TextView wrongGuessesView = (TextView)findViewById(R.id.wrongGuessesView);
-        wrongGuessesView.setText(Model._wrongGuessesAmount.toString());
+        wrongGuessesView.setText("Incorrect guesses: " + Model._wrongGuessesAmount.toString());
 
         if(Model._displayWord.equals(Model.get_answer())){
             Toast.makeText(MainActivity.this, "You won", Toast.LENGTH_LONG).show();
