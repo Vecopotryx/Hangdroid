@@ -140,6 +140,7 @@ public class GameActivity extends AppCompatActivity {
      * Populates the _answerArray with the contents of the _answer string. Useful in order to simplify comparing guesses with the answer.
      */
     public void populateArray(){
+        Model._answerArray.clear();
         for(char c : Model.get_answer().toCharArray()) {
             Model._answerArray.add(c);
         }

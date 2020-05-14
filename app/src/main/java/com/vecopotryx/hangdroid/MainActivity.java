@@ -16,17 +16,30 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        button = (Button)findViewById(R.id.startGameButton);
+        button = (Button)findViewById(R.id.randomGameButton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openGameActivity();
             }
         });
+
+        button = (Button)findViewById(R.id.customGameButton);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openCustomActivity();
+            }
+        });
     }
 
     public void openGameActivity(){
         Intent intent = new Intent(this, GameActivity.class);
+        startActivity(intent);
+    }
+
+    public void openCustomActivity(){
+        Intent intent = new Intent(this, CustomActivity.class);
         startActivity(intent);
     }
 }
