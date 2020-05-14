@@ -9,7 +9,6 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,19 +16,36 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportActionBar().setTitle("Hangdroid");
 
-        button = (Button)findViewById(R.id.randomGameButton);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button randomGameButton = (Button)findViewById(R.id.randomGameButton);
+        randomGameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openGameActivity();
             }
         });
 
-        button = (Button)findViewById(R.id.customGameButton);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button customGameButton = (Button)findViewById(R.id.customGameButton);
+        customGameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openPickModeActivity();
+            }
+        });
+
+        Button leaderboardButton = (Button)findViewById(R.id.leaderboardButton);
+        leaderboardButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // do stuff
+            }
+        });
+
+        Button exitButton = (Button)findViewById(R.id.exitButton);
+        exitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                System.exit(0);
             }
         });
     }
