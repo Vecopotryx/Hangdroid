@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void method(View v){
-
+        TextView tv = (TextView)findViewById(R.id.textView);
+        tv.setText("Test text");
     }
 }
