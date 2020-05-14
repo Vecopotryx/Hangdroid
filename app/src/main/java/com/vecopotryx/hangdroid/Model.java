@@ -36,4 +36,15 @@ public class Model {
      * Holds the _displayWord. Which is the String that is displayed in the game in order to show what characters have been correct and how many more there are.
      */
     public static String _displayWord = "";
+
+    /**
+     * Holds the minimum length that the answer can be. Can be modified by a user using the custom game mode.
+     */
+    public static Integer _customMinLength = 1;
+
+    /**
+     * Holds the maximum length that the answer can be. Can be modified by a user using the custom game mode.
+     */
+    public static Integer _customMaxLength = 12;
+
 }
