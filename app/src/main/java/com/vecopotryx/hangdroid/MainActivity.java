@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,11 +23,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Model.set_answer("test");
         populateArray();
+
+        EditText inputBox   = (EditText)findViewById(R.id.editText);
+        final Button button = (Button)findViewById((R.id.button));
+        inputBox.setOnEditorActionListener(new EditText.OnEditorActionListener() {
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    button.performClick();
+                    return true;
+                }
+                return false;
+            }
+        });
     }
 
     String input;
     public void buttonPress(View v){
-        // Button mButton;
 
         EditText inputBox   = (EditText)findViewById(R.id.editText);
 
@@ -48,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
         } else if(Model._wrongGuessesAmount > 6){
             Toast.makeText(MainActivity.this, "You lost", Toast.LENGTH_LONG).show();
         }
+
+        inputBox.setText("");
 
         // Toast.makeText(MainActivity.this,Model._answerArray.toString(), Toast.LENGTH_LONG).show();
 
