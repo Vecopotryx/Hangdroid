@@ -1,5 +1,7 @@
 package com.vecopotryx.hangdroid;
 
+import java.util.ArrayList;
+
 public class Model {
     /**
      * Holds the answer
@@ -21,4 +23,16 @@ public class Model {
     public static void set_answer(String answerIn) {
         _answer = answerIn;
     }
+
+    public static ArrayList<Character> _answerArray = new ArrayList<Character>();
+
+    /**
+     * Holds previous guesses
+     */
+    public static ArrayList<Character> _charGuess = new ArrayList<Character>();
+
+    /**
+     * Holds the _displayWord. Which is the String that is displayed in the game in order to show what characters have been correct and how many more there are.
+     */
+    public static String _displayWord = "";
 }
