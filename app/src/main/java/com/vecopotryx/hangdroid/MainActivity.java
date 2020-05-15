@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,11 +21,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportActionBar().setTitle("Hangdroid");
 
+
         if(Model._wantExit){
             handleExit();
         }
 
-        
         Button randomGameButton = (Button)findViewById(R.id.randomGameButton);
         randomGameButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +62,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
+        SharedPreferences appSettingsPrefs = getSharedPreferences("AppSettingsPrefs", 0);
+        final SharedPreferences.Editor sharedPrefsEditior = appSettingsPrefs.edit();
+
+
         final Switch darkModeSwitch = (Switch)findViewById((R.id.darkModeSwitch));
 
         CheckBox toggleAutoMode = (CheckBox)findViewById(R.id.toggleAutoMode);
@@ -71,27 +78,55 @@ public class MainActivity extends AppCompatActivity {
             {
                 if(isChecked)
                 {
+                    sharedPrefsEditior.putBoolean("AUTO_MODE",true);
                     darkModeSwitch.setClickable(false);
                 } else {
+                    sharedPrefsEditior.putBoolean("AUTO_MODE",false);
                     darkModeSwitch.setClickable(true);
                 }
 
             }
         });
 
+        sharedPrefsEditior.putBoolean("DARK_MODE",false);
+
         darkModeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
+                    sharedPrefsEditior.putBoolean("DARK_MODE",true);
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                     finish();
                     startActivity(getIntent());
                 } else {
+                    sharedPrefsEditior.putBoolean("DARK_MODE",false);
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                     finish();
                     startActivity(getIntent());
                 }
             }
         });
+
+
+        if(appSettingsPrefs.getBoolean("AUTO_MODE", true)){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+            toggleAutoMode.setChecked(true);
+            darkModeSwitch.setClickable(false);
+        } else {
+            toggleAutoMode.setChecked(false);
+            darkModeSwitch.setClickable(true);
+            if(appSettingsPrefs.getBoolean("DARK_MODE",false)){
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            }
+        }
+
+
+    }
+
+    private void refreshScreen(){
+        finish();
+        startActivity(getIntent());
     }
 
     public void openGameActivity(){
