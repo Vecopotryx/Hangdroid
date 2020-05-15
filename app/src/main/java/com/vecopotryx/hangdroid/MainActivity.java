@@ -63,41 +63,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button switchModeButton = (Button)findViewById(R.id.switchModeButton);
-        
+
 
     }
 
-    public void switchMode(View v){
-        Button switchModeButton = (Button)findViewById(R.id.switchModeButton);
-        final SharedPreferences appSettingsPrefs = getSharedPreferences("AppSettingsPrefs", MODE_PRIVATE);
-        final SharedPreferences.Editor sharedPrefsEditior = appSettingsPrefs.edit();
-        switch(appSettingsPrefs.getInt("MODE",1)){
-            case 1:
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                switchModeButton.setText("2");
-                sharedPrefsEditior.putInt("MODE",2);
-                refreshScreen();
-                break;
-            case 2:
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
-                switchModeButton.setText("3");
-                sharedPrefsEditior.putInt("MODE",3);
-                refreshScreen();
-                break;
-            case 3:
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                switchModeButton.setText("1");
-                sharedPrefsEditior.putInt("MODE",1);
-                refreshScreen();
-                break;
-        }
-    }
-
-    private void refreshScreen(){
-        finish();
-        startActivity(getIntent());
-    }
 
     public void openGameActivity(){
         Model._customMinLength = 1;
