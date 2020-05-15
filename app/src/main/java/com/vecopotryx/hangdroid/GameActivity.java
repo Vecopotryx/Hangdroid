@@ -35,7 +35,7 @@ public class GameActivity extends AppCompatActivity {
 
         Model.set_answer("error");
         randomFromFile();
-        populateArray();
+        GameControl.populateArray();
 
         GameControl.updateDisplayWord();
         TextView displayWordView = (TextView)findViewById(R.id.displayWordView);
@@ -171,17 +171,6 @@ public class GameActivity extends AppCompatActivity {
             Model._charGuess.add(stringIn.toCharArray()[0]);
         }
     }
-
-    /**
-     * Populates the _answerArray with the contents of the _answer string. Useful in order to simplify comparing guesses with the answer.
-     */
-    public void populateArray(){
-        Model._answerArray.clear();
-        for(char c : Model.get_answer().toLowerCase().toCharArray()) {
-            Model._answerArray.add(c);
-        }
-    }
-
 
     private void handleVictory(){
         Intent intent = new Intent(this, VictoryActivity.class);

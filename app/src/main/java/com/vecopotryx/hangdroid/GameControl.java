@@ -40,4 +40,14 @@ public class GameControl {
         Model._customMaxLength = 12;
     }
 
+    /**
+     * Populates the _answerArray with the contents of the _answer string. Useful in order to simplify comparing guesses with the answer.
+     */
+    public static void populateArray(){
+        Model._answerArray.clear();
+        for(char c : Model.get_answer().toLowerCase().toCharArray()) {
+            Model._answerArray.add(c);
+        }
+    }
 }
+
