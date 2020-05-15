@@ -2,6 +2,7 @@ package com.vecopotryx.hangdroid;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -109,9 +110,11 @@ public class GameActivity extends AppCompatActivity {
         wrongGuessesView.setText("Incorrect guesses: " + Model._wrongGuessesAmount.toString());
 
         if(Model._displayWord.equals(Model.get_answer().toLowerCase())){
-            Toast.makeText(GameActivity.this, "You won", Toast.LENGTH_LONG).show();
+            // Victory
+            handleVictory();
         } else if(Model._wrongGuessesAmount > 6){
-            Toast.makeText(GameActivity.this, "You lost", Toast.LENGTH_LONG).show();
+            // Loss
+            handleLoss();
         }
 
         inputBox.setText("");
@@ -143,5 +146,17 @@ public class GameActivity extends AppCompatActivity {
         for(char c : Model.get_answer().toLowerCase().toCharArray()) {
             Model._answerArray.add(c);
         }
+    }
+
+    private void handleVictory(){
+        Intent intent = new Intent(this, VictoryActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+    }
+
+    private void handleLoss(){
+        Intent intent = new Intent(this, LossActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 }
