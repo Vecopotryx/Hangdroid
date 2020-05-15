@@ -112,10 +112,12 @@ public class GameActivity extends AppCompatActivity {
         if(Model._displayWord.equals(Model.get_answer().toLowerCase())){
             // Victory
             handleVictory();
-        } else if(Model._wrongGuessesAmount > 6){
+        } else if(Model._wrongGuessesAmount >= 6){
             // Loss
             handleLoss();
         }
+
+
 
         inputBox.setText("");
     }
