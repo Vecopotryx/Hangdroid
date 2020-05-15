@@ -1,2 +1,5 @@
 # Hangdroid
-Android port of the hangman game which I'm making in another class.
+
+![Screenshot_1589569059](docs/Screenshot_1589569059.png)
+
+Hangdroid is a simple and streamlined Hangman game for Android. 
