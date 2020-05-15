@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.content.res.Configuration;
+import android.graphics.ColorMatrixColorFilter;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -39,6 +41,17 @@ public class GameActivity extends AppCompatActivity {
         TextView displayWordView = (TextView)findViewById(R.id.displayWordView);
         displayWordView.setText(Model._displayWord);
         Toast.makeText(GameActivity.this, "Just for debug: " + Model.get_answer(), Toast.LENGTH_SHORT).show();
+
+
+        ImageView hangmanGraphic = (ImageView)findViewById(R.id.hangmanGraphic);
+
+        switch (getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK) {
+            case Configuration.UI_MODE_NIGHT_YES:
+                hangmanGraphic.setColorFilter(new ColorMatrixColorFilter(NEGATIVE));
+                break;
+            case Configuration.UI_MODE_NIGHT_NO:
+                break;
+        }
 
         EditText inputBox   = (EditText)findViewById(R.id.editText);
 
@@ -127,6 +140,19 @@ public class GameActivity extends AppCompatActivity {
 
         inputBox.setText("");
     }
+    /**
+     * Color matrix that flips the components (<code>-1.0f * c + 255 = 255 - c</code>)
+     * and keeps the alpha intact.
+     */
+    private static final float[] NEGATIVE = {
+            -1.0f, 0, 0, 0, 255, // red
+            0, -1.0f, 0, 0, 255, // green
+            0, 0, -1.0f, 0, 255, // blue
+            0, 0, 0, 1.0f, 0 // alpha
+    };
+
+
+
 
     /**
      * This method handles the main logic for the screen that the user sees during the game.
