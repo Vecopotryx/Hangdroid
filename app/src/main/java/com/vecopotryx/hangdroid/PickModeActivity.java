@@ -51,7 +51,7 @@ public class PickModeActivity extends AppCompatActivity {
     }
 
     public void startGame(){
-        Intent intent = new Intent(this, GameActivity.class);
+        Intent intent = new Intent(this, VictoryActivity.class);
         startActivity(intent);
     }
 

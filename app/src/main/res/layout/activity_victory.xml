@@ -29,7 +29,7 @@
         app:layout_constraintTop_toBottomOf="@+id/victoryImageView" />
 
     <TextView
-        android:id="@+id/youWonView"
+        android:id="@+id/victoryYouWonTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="You won"
@@ -39,7 +39,7 @@
         app:layout_constraintTop_toBottomOf="@+id/victoryTextView" />
 
     <TextView
-        android:id="@+id/answerView"
+        android:id="@+id/victoryAnswerView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -47,10 +47,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/youWonView" />
+        app:layout_constraintTop_toBottomOf="@+id/victoryYouWonTextView" />
 
     <TextView
-        android:id="@+id/guessAmountView"
+        android:id="@+id/victoryGuessAmountView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -58,17 +58,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/answerView" />
+        app:layout_constraintTop_toBottomOf="@+id/victoryAnswerView" />
 
     <TextView
-        android:id="@+id/incorrectGuessesView"
+        android:id="@+id/victoryIncorrectGuessesView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="Amount of incorrect guesses: (insert)"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guessAmountView" />
+        app:layout_constraintTop_toBottomOf="@+id/victoryGuessAmountView" />
 
     <TextView
         android:id="@+id/victoryCharGuessView"
@@ -78,11 +78,11 @@
         android:text="[t,e,s,t ]"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/incorrectGuessesView" />
+        app:layout_constraintTop_toBottomOf="@+id/victoryIncorrectGuessesView" />
 
     <Button
-        android:id="@+id/playAgainButton"
-        android:layout_width="150dp"
+        android:id="@+id/victoryPlayAgainButton"
+        android:layout_width="175dp"
         android:layout_height="wrap_content"
         android:background="@drawable/custom_button"
         android:textColor="@color/mainText"
@@ -93,4 +93,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/victoryCharGuessView"
         app:layout_constraintVertical_bias="0.089" />
+
+    <Button
+        android:id="@+id/victoryAddToLeaderboardButton"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_button"
+        android:text="Add to leaderboard"
+        android:textColor="@color/mainText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/victoryPlayAgainButton"
+        app:layout_constraintVertical_bias="0.06" />
+
+    <Button
+        android:id="@+id/victoryExitButton"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_button"
+        android:text="Exit"
+        android:textColor="@color/mainText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/victoryAddToLeaderboardButton"
+        app:layout_constraintVertical_bias="0.081" />
 </androidx.constraintlayout.widget.ConstraintLayout>

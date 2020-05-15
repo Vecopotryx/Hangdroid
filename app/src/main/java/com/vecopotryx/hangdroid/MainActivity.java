@@ -45,8 +45,7 @@ public class MainActivity extends AppCompatActivity {
         exitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
-                System.exit(0);
+                handleExit();
             }
         });
     }
@@ -61,5 +60,10 @@ public class MainActivity extends AppCompatActivity {
     public void openPickModeActivity(){
         Intent intent = new Intent(this, PickModeActivity.class);
         startActivity(intent);
+    }
+
+    public void handleExit(){
+        MainActivity.this.finish();
+        System.exit(0);
     }
 }
