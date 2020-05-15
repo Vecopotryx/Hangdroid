@@ -47,4 +47,9 @@ public class Model {
      */
     public static Integer _customMaxLength = 12;
 
+    /**
+     * Used in order to be able to close app on exit click several activities in.
+     */
+    public static Boolean _wantExit = false;
+
 }

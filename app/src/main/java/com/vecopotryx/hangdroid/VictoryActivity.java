@@ -47,7 +47,7 @@ public class VictoryActivity extends AppCompatActivity {
         exitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                handleExit();
             }
         });
     }
@@ -60,10 +60,11 @@ public class VictoryActivity extends AppCompatActivity {
     }
 
     private void addToLeaderboard(){
-
+        // do stuff
     }
 
     public void handleExit(){
-
+        Model._wantExit = true;
+        backToMenu();
     }
 }

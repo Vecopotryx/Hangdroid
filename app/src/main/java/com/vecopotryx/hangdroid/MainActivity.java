@@ -16,6 +16,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportActionBar().setTitle("Hangdroid");
 
+        if(Model._wantExit){
+            handleExit();
+        }
+
         Button randomGameButton = (Button)findViewById(R.id.randomGameButton);
         randomGameButton.setOnClickListener(new View.OnClickListener() {
             @Override
