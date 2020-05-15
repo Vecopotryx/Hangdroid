@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/mainBackground"
     tools:context=".CustomActivity">
 
 
@@ -11,6 +12,7 @@
         android:id="@+id/minLengthText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/mainText"
         android:text="Minimum answer length: 1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,6 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
+        android:textColor="@color/mainText"
         android:text="Maximum answer length: 12"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -60,9 +63,9 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:background="@drawable/custom_button"
-        android:textColor="@color/mainText"
-        android:text="Start game"
         android:onClick="startGamePress"
+        android:text="Start game"
+        android:textColor="@color/mainButtonText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -4,6 +4,9 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
 
+    <color name="mainText">#2D313D</color>
+    <color name="mainTextAlt">#81838A</color>
     <color name="mainButtons">#2D313D</color>
-    <color name="mainText">#FFFFFF</color>
+    <color name="mainButtonText">#FFFFFF</color>
+    <color name="mainBackground">#FFFFFF</color>
 </resources>
