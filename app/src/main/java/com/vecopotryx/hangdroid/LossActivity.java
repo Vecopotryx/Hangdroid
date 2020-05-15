@@ -58,4 +58,9 @@ public class LossActivity extends AppCompatActivity {
         Model._wantExit = true;
         backToMenu();
     }
+
+    @Override
+    public void onBackPressed() {
+        backToMenu();
+    }
 }
