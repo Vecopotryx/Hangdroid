@@ -47,7 +47,7 @@ public class LossActivity extends AppCompatActivity {
         });
     }
 
-    public void backToMenu(){
+    private void backToMenu(){
         GameControl.clearVariables();
         Intent intent = new Intent(this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

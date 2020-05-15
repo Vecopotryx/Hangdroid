@@ -117,13 +117,13 @@ public class GameActivity extends AppCompatActivity {
         } else if(Model._wrongGuessesAmount >= 6){
             // Loss
             handleLoss();
+        } else {
+            ImageView hangmanGraphic = (ImageView)findViewById(R.id.hangmanGraphic);
+            Drawable currentImage = getDrawable(getResources().getIdentifier("img_hangman" + Model._wrongGuessesAmount, "drawable", getPackageName()));
+            hangmanGraphic.setImageDrawable(currentImage);
         }
 
-        ImageView hangmanGraphic = (ImageView)findViewById(R.id.hangmanGraphic);
 
-        Drawable currentImage = getDrawable(getResources().getIdentifier("img_hangman" + Model._wrongGuessesAmount, "drawable", getPackageName()));
-
-        hangmanGraphic.setImageDrawable(currentImage);
 
         inputBox.setText("");
     }
@@ -155,6 +155,7 @@ public class GameActivity extends AppCompatActivity {
             Model._answerArray.add(c);
         }
     }
+
 
     private void handleVictory(){
         Intent intent = new Intent(this, VictoryActivity.class);
