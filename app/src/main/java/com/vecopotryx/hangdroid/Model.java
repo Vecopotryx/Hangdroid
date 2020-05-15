@@ -52,4 +52,5 @@ public class Model {
      */
     public static Boolean _wantExit = false;
 
+    public static Boolean _gameRunning = false;
 }

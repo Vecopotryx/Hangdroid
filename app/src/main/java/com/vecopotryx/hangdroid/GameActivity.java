@@ -30,18 +30,20 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-
         getSupportActionBar().setTitle("Hangdroid");
 
-        Model.set_answer("error");
-        randomFromFile();
-        GameControl.populateArray();
+        if(!Model._gameRunning){
+            Model.set_answer("error");
+            randomFromFile();
+            GameControl.populateArray();
+            Model._gameRunning = true;
+        }
+
+        Toast.makeText(GameActivity.this, "Just for debug: " + Model.get_answer(), Toast.LENGTH_SHORT).show();
 
         GameControl.updateDisplayWord();
         TextView displayWordView = (TextView)findViewById(R.id.displayWordView);
         displayWordView.setText(Model._displayWord);
-        Toast.makeText(GameActivity.this, "Just for debug: " + Model.get_answer(), Toast.LENGTH_SHORT).show();
-
 
         ImageView hangmanGraphic = (ImageView)findViewById(R.id.hangmanGraphic);
 
@@ -105,10 +107,7 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void buttonPress(View v){
-
         EditText inputBox   = (EditText)findViewById(R.id.editText);
-
-
 
         gameScreen(inputBox.getText().toString().toLowerCase());
         if(Model._charGuess.size() > 0){
@@ -136,8 +135,6 @@ public class GameActivity extends AppCompatActivity {
             hangmanGraphic.setImageDrawable(currentImage);
         }
 
-
-
         inputBox.setText("");
     }
     /**
@@ -150,9 +147,6 @@ public class GameActivity extends AppCompatActivity {
             0, 0, -1.0f, 0, 255, // blue
             0, 0, 0, 1.0f, 0 // alpha
     };
-
-
-
 
     /**
      * This method handles the main logic for the screen that the user sees during the game.
@@ -173,12 +167,14 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void handleVictory(){
+        Model._gameRunning = false;
         Intent intent = new Intent(this, VictoryActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
 
     private void handleLoss(){
+        Model._gameRunning = false;
         Intent intent = new Intent(this, LossActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
