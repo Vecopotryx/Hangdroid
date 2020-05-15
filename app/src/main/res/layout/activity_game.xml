@@ -74,13 +74,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.022" />
 
-    <Canvas/>
-
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/img_hangman0"
-        tools:layout_editor_absoluteX="166dp"
-        tools:layout_editor_absoluteY="179dp" />
+        android:id="@+id/hangmanGraphic"
+        android:layout_width="129dp"
+        android:layout_height="132dp"
+        app:layout_constraintBottom_toTopOf="@+id/displayWordView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.738"
+        app:srcCompat="@drawable/img_hangman0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

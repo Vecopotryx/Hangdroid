@@ -5,61 +5,37 @@
     android:viewportHeight="100">
   <path
       android:pathData="M4.603,90L44.603,90"
-      android:strokeLineJoin="undefined"
       android:strokeWidth="1.5"
       android:fillColor="#00000000"
-      android:strokeColor="#000"
-      android:strokeLineCap="undefined"/>
+      android:strokeColor="#000"/>
   <path
       android:pathData="M24.841,90L24.841,5.08"
-      android:strokeAlpha="null"
-      android:strokeLineJoin="undefined"
       android:strokeWidth="1.5"
       android:fillColor="#00000000"
-      android:fillAlpha="null"
-      android:strokeColor="#000"
-      android:strokeLineCap="undefined"/>
+      android:strokeColor="#000"/>
   <path
       android:pathData="M24.603,5.08L64.603,5.08"
-      android:strokeAlpha="null"
-      android:strokeLineJoin="undefined"
       android:strokeWidth="1.5"
       android:fillColor="#00000000"
-      android:fillAlpha="null"
-      android:strokeColor="#000"
-      android:strokeLineCap="undefined"/>
+      android:strokeColor="#000"/>
   <path
       android:pathData="M24.603,15.08L34.354,5.17"
-      android:strokeAlpha="null"
-      android:strokeLineJoin="undefined"
       android:strokeWidth="1.5"
       android:fillColor="#00000000"
-      android:fillAlpha="null"
-      android:strokeColor="#000"
-      android:strokeLineCap="undefined"/>
+      android:strokeColor="#000"/>
   <path
       android:pathData="M64.603,5.08L64.603,15.08"
-      android:strokeAlpha="null"
-      android:strokeLineJoin="undefined"
       android:strokeWidth="1.5"
       android:fillColor="#00000000"
-      android:fillAlpha="null"
-      android:strokeColor="#000"
-      android:strokeLineCap="undefined"/>
+      android:strokeColor="#000"/>
   <path
       android:pathData="M58.603,21.08a6,6 0,1 0,12 0a6,6 0,1 0,-12 0z"
-      android:strokeAlpha="null"
       android:strokeWidth="1.5"
       android:fillColor="#00000000"
-      android:fillAlpha="null"
       android:strokeColor="#000"/>
   <path
       android:pathData="M64.286,27.08L64.286,55.08"
-      android:strokeAlpha="null"
-      android:strokeLineJoin="null"
       android:strokeWidth="1.5"
       android:fillColor="#00000000"
-      android:fillAlpha="null"
-      android:strokeColor="#000"
-      android:strokeLineCap="null"/>
+      android:strokeColor="#000"/>
 </vector>
