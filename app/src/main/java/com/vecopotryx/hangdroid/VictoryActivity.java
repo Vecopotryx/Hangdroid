@@ -35,13 +35,6 @@ public class VictoryActivity extends AppCompatActivity {
             }
         });
 
-        Button addToLeaderboardButton = (Button)findViewById(R.id.victoryAddToLeaderboardButton);
-        addToLeaderboardButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                addToLeaderboard();
-            }
-        });
 
         Button exitButton = (Button)findViewById(R.id.victoryExitButton);
         exitButton.setOnClickListener(new View.OnClickListener() {
@@ -57,10 +50,6 @@ public class VictoryActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
-    }
-
-    private void addToLeaderboard(){
-        // do stuff
     }
 
     public void handleExit(){

@@ -44,13 +44,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button leaderboardButton = (Button)findViewById(R.id.leaderboardButton);
-        leaderboardButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // do stuff
-            }
-        });
+
 
         Button exitButton = (Button)findViewById(R.id.exitButton);
         exitButton.setOnClickListener(new View.OnClickListener() {

@@ -7,22 +7,14 @@
     android:background="@color/mainBackground"
     tools:context=".GameActivity">
 
-    <TextView
-        android:id="@+id/charGuessView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/mainText"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/guessButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/custom_button"
-        android:onClick="buttonPress"
+        android:onClick="guessButtonPress"
+        android:textAllCaps="false"
         android:text="Guess"
         android:textColor="@color/mainButtonText"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -37,50 +29,60 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:textColor="@color/mainText"
-        android:textColorHint="@color/mainTextAlt"
         android:hint="enter guess"
         android:inputType="textShortMessage"
         android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        android:textColor="@color/mainText"
+        android:textColorHint="@color/mainTextAlt"
+        app:layout_constraintBottom_toTopOf="@+id/guessButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/charGuessView" />
+        app:layout_constraintTop_toBottomOf="@+id/charGuessView"
+        app:layout_constraintVertical_bias="0.496" />
 
     <TextView
         android:id="@+id/displayWordView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="_ _ _ _"
         android:textColor="@color/mainText"
-        android:text="Text"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="25sp"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.432" />
+        app:layout_constraintTop_toBottomOf="@+id/hangmanGraphic" />
 
     <TextView
         android:id="@+id/wrongGuessesView"
-        style="@android:style/TextAppearance.DeviceDefault.Medium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/mainText"
+        android:layout_marginTop="20dp"
         android:text="Incorrect guesses: 0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.96"
+        android:textColor="@color/mainTextAlt"
+        android:textSize="16sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.022" />
+        app:layout_constraintTop_toBottomOf="@+id/charGuessView" />
+
+
+    <TextView
+        android:id="@+id/charGuessView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/mainTextAlt"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/displayWordView" />
 
     <ImageView
         android:id="@+id/hangmanGraphic"
-        android:layout_width="129dp"
-        android:layout_height="132dp"
-        app:layout_constraintBottom_toTopOf="@+id/displayWordView"
+        android:layout_width="153dp"
+        android:layout_height="157dp"
+        android:layout_marginTop="88dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.738"
         app:srcCompat="@drawable/img_hangman0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

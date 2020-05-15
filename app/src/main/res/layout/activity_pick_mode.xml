@@ -7,74 +7,97 @@
     android:background="@color/mainBackground"
     tools:context=".PickModeActivity">
 
+
+    <ImageView
+        android:id="@+id/pickModeImageView"
+        android:layout_width="178dp"
+        android:layout_height="107dp"
+        android:layout_marginTop="140dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/android_robot" />
+
     <TextView
-        android:id="@+id/customizeTextView"
+        android:id="@+id/pickModeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/mainText"
         android:text="Pick mode"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.116" />
+        android:textColor="@color/mainText"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pickModeImageView" />
+
+    <TextView
+        android:id="@+id/appInfoView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Either pick a preset or \n set custom settings"
+        android:textAlignment="center"
+        android:textColor="@color/mainTextAlt"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pickModeTextView" />
 
     <Button
         android:id="@+id/easyModeButton"
         android:layout_width="160dp"
         android:layout_height="50dp"
+        android:layout_marginTop="52dp"
         android:background="@drawable/custom_button"
         android:onClick="setEasyMode"
         android:text="Easy"
+        android:textAllCaps="false"
         android:textColor="@color/mainButtonText"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.395" />
+        app:layout_constraintTop_toBottomOf="@+id/appInfoView2" />
 
     <Button
         android:id="@+id/mediumModeButton"
         android:layout_width="160dp"
         android:layout_height="50dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/custom_button"
         android:onClick="setMediumMode"
         android:text="Medium"
+        android:textAllCaps="false"
         android:textColor="@color/mainButtonText"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/easyModeButton" />
 
     <Button
         android:id="@+id/difficultModeButton"
         android:layout_width="160dp"
         android:layout_height="50dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/custom_button"
         android:onClick="setDifficultMode"
         android:text="Difficult"
+        android:textAllCaps="false"
         android:textColor="@color/mainButtonText"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.607" />
+        app:layout_constraintTop_toBottomOf="@+id/mediumModeButton" />
 
     <Button
         android:id="@+id/customButton"
         android:layout_width="160dp"
         android:layout_height="50dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/custom_button"
         android:text="Custom"
+        android:textAllCaps="false"
         android:textColor="@color/mainButtonText"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.715" />
+        app:layout_constraintTop_toBottomOf="@+id/difficultModeButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

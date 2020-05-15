@@ -57,7 +57,7 @@ public class GameActivity extends AppCompatActivity {
 
         EditText inputBox   = (EditText)findViewById(R.id.editText);
 
-        final Button button = (Button)findViewById((R.id.button));
+        final Button button = (Button)findViewById((R.id.guessButton));
         inputBox.setOnEditorActionListener(new EditText.OnEditorActionListener() {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
@@ -70,7 +70,6 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private long backPressedTime;
-
 
     @Override
     public void onBackPressed() {
@@ -120,7 +119,7 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
-    public void buttonPress(View v){
+    public void guessButtonPress(View v){
         EditText inputBox   = (EditText)findViewById(R.id.editText);
 
         gameScreen(inputBox.getText().toString().toLowerCase());

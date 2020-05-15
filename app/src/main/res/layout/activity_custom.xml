@@ -8,29 +8,76 @@
     tools:context=".CustomActivity">
 
 
+    <ImageView
+        android:id="@+id/customizeGameLogoView"
+        android:layout_width="178dp"
+        android:layout_height="107dp"
+        android:layout_marginTop="144dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/android_robot" />
+
+    <TextView
+        android:id="@+id/lossTextView2"
+        style="@android:style/TextAppearance.DeviceDefault.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Customize game"
+        android:textColor="@color/mainText"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/customizeGameLogoView" />
+
+    <TextView
+        android:id="@+id/lossYouLostTextView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pick minimum and maximum \n answer length"
+        android:textAlignment="center"
+        android:textColor="@color/mainTextAlt"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lossTextView2" />
+
     <TextView
         android:id="@+id/minLengthText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/mainText"
+        android:layout_marginBottom="324dp"
         android:text="Minimum answer length: 1"
+        android:textColor="@color/mainTextAlt"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.247" />
+        app:layout_constraintTop_toBottomOf="@+id/lossYouLostTextView2" />
 
     <TextView
         android:id="@+id/maxLengthText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:textColor="@color/mainText"
+        android:layout_marginTop="28dp"
         android:text="Maximum answer length: 12"
+        android:textColor="@color/mainTextAlt"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/minLengthBar" />
+
+    <SeekBar
+        android:id="@+id/maxLengthBar"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="370dp"
+        android:layout_height="70dp"
+        android:max="11"
+        android:progress="11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/maxLengthText" />
 
     <SeekBar
         android:id="@+id/minLengthBar"
@@ -44,30 +91,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/minLengthText" />
 
-    <SeekBar
-        android:id="@+id/maxLengthBar"
-        style="@style/Widget.AppCompat.SeekBar.Discrete"
-        android:layout_width="370dp"
-        android:layout_height="70dp"
-        android:max="11"
-        android:progress="11"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.609"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/maxLengthText"
-        app:layout_constraintVertical_bias="0.0" />
-
     <Button
         android:id="@+id/startGameButton"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:background="@drawable/custom_button"
         android:onClick="startGamePress"
         android:text="Start game"
         android:textColor="@color/mainButtonText"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/maxLengthBar" />
 

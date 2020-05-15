@@ -9,23 +9,24 @@
 
     <ImageView
         android:id="@+id/victoryImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="178dp"
+        android:layout_height="107dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.179"
-        app:srcCompat="@android:drawable/sym_def_app_icon" />
+        app:srcCompat="@drawable/android_robot" />
 
     <TextView
         android:id="@+id/victoryTextView"
         style="@android:style/TextAppearance.DeviceDefault.Medium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/mainText"
         android:text="Victory"
+        android:textColor="@color/mainText"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/victoryImageView" />
@@ -34,8 +35,9 @@
         android:id="@+id/victoryYouWonTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/mainText"
         android:text="You won"
+        android:textColor="@color/mainTextAlt"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,8 +48,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:textColor="@color/mainText"
         android:text="The answer was: (insert)"
+        android:textColor="@color/mainTextAlt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,8 +60,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:textColor="@color/mainText"
         android:text="Amount of guesses: (insert)"
+        android:textColor="@color/mainTextAlt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,8 +72,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:textColor="@color/mainText"
         android:text="Amount of incorrect guesses: (insert)"
+        android:textColor="@color/mainTextAlt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/victoryGuessAmountView" />
@@ -81,8 +83,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:textColor="@color/mainText"
         android:text="[t,e,s,t ]"
+        android:textColor="@color/mainTextAlt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/victoryIncorrectGuessesView" />
@@ -94,6 +96,7 @@
         android:background="@drawable/custom_button"
         android:text="Play again"
         android:textColor="@color/mainButtonText"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -102,30 +105,16 @@
         app:layout_constraintVertical_bias="0.089" />
 
     <Button
-        android:id="@+id/victoryAddToLeaderboardButton"
-        android:layout_width="175dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/custom_button"
-        android:text="Add to leaderboard"
-        android:textColor="@color/mainButtonText"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/victoryPlayAgainButton"
-        app:layout_constraintVertical_bias="0.06" />
-
-    <Button
         android:id="@+id/victoryExitButton"
         android:layout_width="175dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:background="@drawable/custom_button"
         android:text="Exit"
+        android:textAllCaps="false"
         android:textColor="@color/mainButtonText"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/victoryAddToLeaderboardButton"
-        app:layout_constraintVertical_bias="0.081" />
+        app:layout_constraintTop_toBottomOf="@+id/victoryPlayAgainButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>
