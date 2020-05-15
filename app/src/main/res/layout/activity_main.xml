@@ -68,6 +68,7 @@
         android:id="@+id/lightModeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/custom_button"
         android:text="LIGHT"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -77,7 +78,7 @@
         android:id="@+id/darkModeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/custom_button_selected"
+        android:background="@drawable/custom_button"
         android:text="DARK"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/lightModeButton"
@@ -87,10 +88,24 @@
         android:id="@+id/autoModeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/custom_button"
         android:text="AUTO"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/darkModeButton"
+        app:layout_constraintTop_toBottomOf="@+id/exitButton" />
+
+    <Button
+        android:id="@+id/switchModeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_button"
+        android:text=""
+        android:onClick="switchMode"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.707"
         app:layout_constraintStart_toEndOf="@+id/darkModeButton"
         app:layout_constraintTop_toBottomOf="@+id/exitButton" />
 

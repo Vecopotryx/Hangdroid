@@ -63,82 +63,35 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
-
-        SharedPreferences appSettingsPrefs = getSharedPreferences("AppSettingsPrefs", 0);
-        final SharedPreferences.Editor sharedPrefsEditior = appSettingsPrefs.edit();
-
-
-        Button lightModeButton = (Button)findViewById(R.id.lightModeButton);
-        lightModeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                sharedPrefsEditior.putBoolean("AUTO_MODE",false);
-                sharedPrefsEditior.putBoolean("DARK_MODE",false);
-                clearModeButtons();
-                refreshScreen();
-            }
-        });
-
-        Button darkModeButton = (Button)findViewById(R.id.darkModeButton);
-        darkModeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                sharedPrefsEditior.putBoolean("AUTO_MODE",false);
-                sharedPrefsEditior.putBoolean("DARK_MODE",true);
-                clearModeButtons();
-                refreshScreen();
-            }
-        });
-
-
-        Button autoModeButton = (Button)findViewById(R.id.autoModeButton);
-        autoModeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO);
-                sharedPrefsEditior.putBoolean("AUTO_MODE",true);
-                clearModeButtons();
-                refreshScreen();
-            }
-        });
-
-
-
-
-        sharedPrefsEditior.putBoolean("DARK_MODE",false);
-
-        if(appSettingsPrefs.getBoolean("AUTO_MODE",true)){
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO);
-            clearModeButtons();
-            autoModeButton.setBackground(getDrawable(getResources().getIdentifier("custom_button_selected", "drawable", getPackageName())));
-        } else if(appSettingsPrefs.getBoolean("DARK_MODE", false)) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-            clearModeButtons();
-            lightModeButton.setBackground(getDrawable(getResources().getIdentifier("custom_button_selected", "drawable", getPackageName())));
-        } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-            clearModeButtons();
-            darkModeButton.setBackground(getDrawable(getResources().getIdentifier("custom_button_selected", "drawable", getPackageName())));
-        }
+        Button switchModeButton = (Button)findViewById(R.id.switchModeButton);
+        
 
     }
 
-    private void clearModeButtons(){
-        Button darkModeButton = (Button)findViewById(R.id.darkModeButton);
-        Button lightModeButton = (Button)findViewById(R.id.lightModeButton);
-        Button autoModeButton = (Button)findViewById(R.id.autoModeButton);
-
-        darkModeButton.setBackground(getDrawable(getResources().getIdentifier("custom_button_selected", "drawable", getPackageName())));
-        lightModeButton.setBackground(getDrawable(getResources().getIdentifier("custom_button_selected", "drawable", getPackageName())));
-        autoModeButton.setBackground(getDrawable(getResources().getIdentifier("custom_button_selected", "drawable", getPackageName())));
-
+    public void switchMode(View v){
+        Button switchModeButton = (Button)findViewById(R.id.switchModeButton);
+        final SharedPreferences appSettingsPrefs = getSharedPreferences("AppSettingsPrefs", MODE_PRIVATE);
+        final SharedPreferences.Editor sharedPrefsEditior = appSettingsPrefs.edit();
+        switch(appSettingsPrefs.getInt("MODE",1)){
+            case 1:
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                switchModeButton.setText("2");
+                sharedPrefsEditior.putInt("MODE",2);
+                refreshScreen();
+                break;
+            case 2:
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+                switchModeButton.setText("3");
+                sharedPrefsEditior.putInt("MODE",3);
+                refreshScreen();
+                break;
+            case 3:
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                switchModeButton.setText("1");
+                sharedPrefsEditior.putInt("MODE",1);
+                refreshScreen();
+                break;
+        }
     }
 
     private void refreshScreen(){
