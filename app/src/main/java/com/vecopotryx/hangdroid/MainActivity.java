@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -64,63 +65,79 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
+
+
         SharedPreferences appSettingsPrefs = getSharedPreferences("AppSettingsPrefs", 0);
         final SharedPreferences.Editor sharedPrefsEditior = appSettingsPrefs.edit();
 
 
-        final Switch darkModeSwitch = (Switch)findViewById((R.id.darkModeSwitch));
-
-        CheckBox toggleAutoMode = (CheckBox)findViewById(R.id.toggleAutoMode);
-        toggleAutoMode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
-        {
+        Button lightModeButton = (Button)findViewById(R.id.lightModeButton);
+        lightModeButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
-            {
-                if(isChecked)
-                {
-                    sharedPrefsEditior.putBoolean("AUTO_MODE",true);
-                    darkModeSwitch.setClickable(false);
-                } else {
-                    sharedPrefsEditior.putBoolean("AUTO_MODE",false);
-                    darkModeSwitch.setClickable(true);
-                }
-
+            public void onClick(View v) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                sharedPrefsEditior.putBoolean("AUTO_MODE",false);
+                sharedPrefsEditior.putBoolean("DARK_MODE",false);
+                clearModeButtons();
+                refreshScreen();
             }
         });
+
+        Button darkModeButton = (Button)findViewById(R.id.darkModeButton);
+        darkModeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                sharedPrefsEditior.putBoolean("AUTO_MODE",false);
+                sharedPrefsEditior.putBoolean("DARK_MODE",true);
+                clearModeButtons();
+                refreshScreen();
+            }
+        });
+
+
+        Button autoModeButton = (Button)findViewById(R.id.autoModeButton);
+        autoModeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO);
+                sharedPrefsEditior.putBoolean("AUTO_MODE",true);
+                clearModeButtons();
+                refreshScreen();
+            }
+        });
+
+
+
 
         sharedPrefsEditior.putBoolean("DARK_MODE",false);
 
-        darkModeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-                    sharedPrefsEditior.putBoolean("DARK_MODE",true);
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                    finish();
-                    startActivity(getIntent());
-                } else {
-                    sharedPrefsEditior.putBoolean("DARK_MODE",false);
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                    finish();
-                    startActivity(getIntent());
-                }
-            }
-        });
-
-
-        if(appSettingsPrefs.getBoolean("AUTO_MODE", true)){
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
-            toggleAutoMode.setChecked(true);
-            darkModeSwitch.setClickable(false);
+        if(appSettingsPrefs.getBoolean("AUTO_MODE",true)){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO);
+            clearModeButtons();
+            autoModeButton.setBackground(getDrawable(getResources().getIdentifier("custom_button_selected", "drawable", getPackageName())));
+        } else if(appSettingsPrefs.getBoolean("DARK_MODE", false)) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            clearModeButtons();
+            lightModeButton.setBackground(getDrawable(getResources().getIdentifier("custom_button_selected", "drawable", getPackageName())));
         } else {
-            toggleAutoMode.setChecked(false);
-            darkModeSwitch.setClickable(true);
-            if(appSettingsPrefs.getBoolean("DARK_MODE",false)){
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-            } else {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-            }
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            clearModeButtons();
+            darkModeButton.setBackground(getDrawable(getResources().getIdentifier("custom_button_selected", "drawable", getPackageName())));
         }
 
+    }
+
+    private void clearModeButtons(){
+        Button darkModeButton = (Button)findViewById(R.id.darkModeButton);
+        Button lightModeButton = (Button)findViewById(R.id.lightModeButton);
+        Button autoModeButton = (Button)findViewById(R.id.autoModeButton);
+
+        darkModeButton.setBackground(getDrawable(getResources().getIdentifier("custom_button_selected", "drawable", getPackageName())));
+        lightModeButton.setBackground(getDrawable(getResources().getIdentifier("custom_button_selected", "drawable", getPackageName())));
+        autoModeButton.setBackground(getDrawable(getResources().getIdentifier("custom_button_selected", "drawable", getPackageName())));
 
     }
 
