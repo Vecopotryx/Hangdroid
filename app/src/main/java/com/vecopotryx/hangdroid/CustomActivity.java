@@ -47,7 +47,7 @@ public class CustomActivity extends AppCompatActivity {
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
+                
             }
 
             @Override

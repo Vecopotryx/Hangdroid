@@ -35,9 +35,10 @@ public class GameActivity extends AppCompatActivity {
         GameControl.updateDisplayWord();
         TextView displayWordView = (TextView)findViewById(R.id.displayWordView);
         displayWordView.setText(Model._displayWord);
+        Toast.makeText(GameActivity.this, "Just for debug: " + Model.get_answer(), Toast.LENGTH_SHORT).show();
 
         EditText inputBox   = (EditText)findViewById(R.id.editText);
-        Toast.makeText(GameActivity.this, "Just for debug: " + Model.get_answer(), Toast.LENGTH_SHORT).show();
+
         final Button button = (Button)findViewById((R.id.button));
         inputBox.setOnEditorActionListener(new EditText.OnEditorActionListener() {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -114,9 +115,6 @@ public class GameActivity extends AppCompatActivity {
         }
 
         inputBox.setText("");
-
-        // Toast.makeText(MainActivity.this,Model._answerArray.toString(), Toast.LENGTH_LONG).show();
-
     }
 
     /**
