@@ -15,6 +15,8 @@ public class CustomActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom);
         getSupportActionBar().setTitle("Custom settings");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         final SeekBar minLengthBar = (SeekBar)findViewById(R.id.minLengthBar);
         final SeekBar maxLengthBar = (SeekBar)findViewById(R.id.maxLengthBar);
 

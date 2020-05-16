@@ -14,6 +14,7 @@ public class PickModeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pick_mode);
         getSupportActionBar().setTitle("Custom game");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Button button = (Button)findViewById(R.id.customButton);
         button.setOnClickListener(new View.OnClickListener() {

@@ -11,9 +11,9 @@
         android:theme="@style/AppTheme">
         <activity android:name=".LossActivity"></activity>
         <activity android:name=".VictoryActivity" />
-        <activity android:name=".PickModeActivity" />
-        <activity android:name=".CustomActivity" />
-        <activity android:name=".GameActivity" />
+        <activity android:name=".PickModeActivity" android:parentActivityName=".MainActivity"/>
+        <activity android:name=".CustomActivity" android:parentActivityName=".PickModeActivity"/>
+        <activity android:name=".GameActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

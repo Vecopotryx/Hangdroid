@@ -9,6 +9,7 @@ import android.graphics.ColorMatrixColorFilter;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
@@ -31,6 +32,7 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         getSupportActionBar().setTitle("Hangdroid");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         if(!Model._gameRunning){
             Model.set_answer("error");
@@ -39,7 +41,7 @@ public class GameActivity extends AppCompatActivity {
             Model._gameRunning = true;
         }
 
-        Toast.makeText(GameActivity.this, "Just for debug: " + Model.get_answer(), Toast.LENGTH_SHORT).show();
+        // Toast.makeText(GameActivity.this, "Just for debug: " + Model.get_answer(), Toast.LENGTH_SHORT).show();
 
         GameControl.updateDisplayWord();
         TextView displayWordView = (TextView)findViewById(R.id.displayWordView);
@@ -67,6 +69,15 @@ public class GameActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch ( item.getItemId() ) {
+            case android.R.id.home:
+                onBackPressed();
+        }
+        return true;
     }
 
     private long backPressedTime;
@@ -153,6 +164,7 @@ public class GameActivity extends AppCompatActivity {
     /**
      * Color matrix that flips the components (<code>-1.0f * c + 255 = 255 - c</code>)
      * and keeps the alpha intact.
+     * Found on the interwebs
      */
     private static final float[] NEGATIVE = {
             -1.0f, 0, 0, 0, 255, // red
