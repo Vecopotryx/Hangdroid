@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="LockedOrientationActivity"
     package="com.vecopotryx.hangdroid">
 
     <application
@@ -9,12 +11,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LossActivity"></activity>
-        <activity android:name=".VictoryActivity" />
-        <activity android:name=".PickModeActivity" android:parentActivityName=".MainActivity"/>
-        <activity android:name=".CustomActivity" android:parentActivityName=".PickModeActivity"/>
-        <activity android:name=".GameActivity"/>
-        <activity android:name=".MainActivity">
+        <activity android:name=".LossActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".VictoryActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".PickModeActivity"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".CustomActivity"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".PickModeActivity"/>
+        <activity android:name=".GameActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
